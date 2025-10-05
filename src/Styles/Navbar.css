@@ -1,0 +1,241 @@
+/* Modern navbar with improved spacing and typography */
+.navbar-section {
+  height: 88px; /* Increased from 80px for better breathing room */
+  padding: 0 var(--space-10); /* Using design token for consistent spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  background-color: var(--nav-bg-color);
+  /* Added modern backdrop blur and border for glass morphism effect */
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  /* Enhanced shadow for depth */
+  box-shadow: var(--shadow-sm);
+  /* Smooth transitions for theme changes */
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+  /* Sticky positioning for always-visible navigation */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo/title styling with modern typography */
+.navbar-title {
+  font-family: 'Poppins', sans-serif; /* Using display font for brand */
+  font-size: var(--font-size-2xl); /* 24px for prominent branding */
+  font-weight: 700; /* Bold for strong brand presence */
+  letter-spacing: -0.02em; /* Tight spacing for modern look */
+}
+
+.navbar-title a {
+  text-decoration: none;
+  color: var(--text-color);
+  /* Smooth hover effect for brand */
+  transition: color var(--transition-fast);
+  /* Focus styles for accessibility */
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-3));
+}
+
+.navbar-title a:hover {
+  color: var(--accent-primary); /* Brand color on hover */
+}
+
+.navbar-title a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Modern button styling with improved accessibility and visual hierarchy */
+.navbar-btn {
+  padding: var(--space-3) var(--space-4); /* Consistent spacing using tokens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2); /* Consistent gap using design token */
+  border: 1px solid var(--border-color); /* Subtle border for definition */
+  border-radius: var(--radius-lg); /* Modern rounded corners */
+  outline: none;
+  color: var(--text-color);
+  background-color: var(--nav-bg-color);
+  font-size: var(--font-size-sm); /* 14px for secondary actions */
+  font-weight: 500; /* Medium weight for better readability */
+  font-family: 'Inter', sans-serif; /* Body font for consistency */
+  letter-spacing: -0.01em; /* Slight negative spacing for modern look */
+  cursor: pointer;
+  /* Enhanced transitions for micro-interactions */
+  transition: all var(--transition-fast);
+  /* Improved focus styles for accessibility */
+  position: relative;
+}
+
+/* Enhanced hover effects with subtle elevation */
+.navbar-btn:hover {
+  background-color: var(--btn-hover);
+  border-color: var(--border-hover);
+  /* Subtle scale for modern feel */
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Active state for better feedback */
+.navbar-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Focus styles for keyboard navigation */
+.navbar-btn:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+/* Navigation actions container with proper spacing */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4); /* Consistent 16px gap using design token */
+}
+
+/* Link wrapper styling */
+.link {
+    text-decoration: none;
+}
+
+/* Modern Quiz button with improved design and accessibility */
+.Quiz-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2); /* 8px gap using design token */
+    padding: var(--space-3) var(--space-6); /* 12px vertical, 24px horizontal */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif; /* Consistent with design system */
+    font-weight: 600;
+    font-size: var(--font-size-sm); /* 14px for secondary actions */
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    text-transform: none; /* Removed uppercase for better readability */
+    cursor: pointer;
+    /* Modern gradient background instead of flat color */
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border: none; /* Removed black border for cleaner look */
+    border-radius: var(--radius-xl); /* 16px for modern pill shape */
+    position: relative;
+    overflow: hidden;
+    /* Enhanced transitions for smoother animations */
+    transition: all var(--transition-normal);
+    /* Improved shadow for depth */
+    box-shadow: var(--shadow-md);
+    /* Remove text shadow for cleaner look */
+    text-shadow: none;
+}
+
+/* Enhanced hover effects */
+.Quiz-btn:hover {
+    /* Subtle elevation on hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    /* Slightly darker gradient on hover */
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+/* Improved active state */
+.Quiz-btn:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+}
+
+/* Focus styles for accessibility */
+.Quiz-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring), var(--shadow-md);
+}
+
+/* Simplified icon animation - removed complex transforms for better performance */
+.Quiz-btn svg {
+    width: 20px; /* Fixed size for consistency */
+    height: 20px;
+    transition: transform var(--transition-fast);
+    z-index: 2;
+}
+
+/* Subtle icon animation on hover */
+.Quiz-btn:hover svg {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Text animation with improved performance */
+.play {
+    transition: opacity var(--transition-fast);
+}
+
+.now {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: all var(--transition-fast);
+    z-index: 2;
+}
+
+/* Improved hover animation for text */
+.Quiz-btn:hover .now {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.Quiz-btn:hover .play {
+    opacity: 0;
+}
+
+
+/* Enhanced responsive design with mobile-first approach */
+@media screen and (max-width: 768px) {
+  .navbar-section {
+    height: 72px; /* Slightly smaller on mobile for more content space */
+    padding: 0 var(--space-4); /* 16px padding on mobile */
+  }
+  
+  .navbar-title {
+    font-size: var(--font-size-lg); /* 18px on mobile for better fit */
+  }
+  
+  .navbar-container {
+    gap: var(--space-2); /* Reduced gap on mobile */
+  }
+  
+  .navbar-btn {
+    padding: var(--space-2) var(--space-3); /* Smaller padding on mobile */
+    font-size: var(--font-size-xs); /* 12px on mobile */
+  }
+  
+  .Quiz-btn {
+    padding: var(--space-2) var(--space-4); /* Adjusted for mobile */
+    font-size: var(--font-size-xs); /* 12px on mobile */
+  }
+  
+  /* Hide text in theme button on very small screens */
+  .navbar-btn span {
+    display: none;
+  }
+}
+
+/* Extra small screens optimization */
+@media screen and (max-width: 480px) {
+  .navbar-section {
+    padding: 0 var(--space-3); /* Further reduced padding */
+  }
+  
+  .navbar-title {
+    font-size: var(--font-size-base); /* 16px for very small screens */
+  }
+  
+  /* Show only icons on very small screens */
+  .Quiz-btn .play,
+  .Quiz-btn .now {
+    display: none;
+  }
+}

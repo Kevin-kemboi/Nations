@@ -1,0 +1,109 @@
+/* Modern loading container with improved centering */
+.spinner-loading {
+    min-height: 60vh; /* Use min-height for flexibility */
+    padding: var(--space-16) var(--space-10); /* Using design tokens */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    /* Smooth background transitions */
+    transition: background-color var(--transition-normal);
+    gap: var(--space-6); /* Space between spinner and text */
+}
+
+/* Modern spinner animation */
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    /* Better performance with will-change */
+    will-change: transform;
+}
+
+/* Enhanced spinner keyframes with easing */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading text styling */
+.loading-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+    text-align: center;
+    /* Subtle fade animation */
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Pulse animation for loading text */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Dots animation for loading indicator */
+.loading-dots::after {
+    content: '';
+    animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+    0%, 33% {
+        content: '.';
+    }
+    34%, 66% {
+        content: '..';
+    }
+    67%, 100% {
+        content: '...';
+    }
+}
+
+/* Enhanced responsive design */
+@media screen and (max-width: 768px) {
+    .spinner-loading {
+        padding: var(--space-12) var(--space-4); /* Reduced padding for mobile */
+        min-height: 50vh; /* Smaller height on mobile */
+    }
+    
+    .spinner {
+        width: 40px; /* Smaller spinner on mobile */
+        height: 40px;
+        border-width: 2px; /* Thinner border */
+    }
+    
+    .loading-text {
+        font-size: var(--font-size-base); /* Smaller text on mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .spinner-loading {
+        padding: var(--space-8) var(--space-3);
+        min-height: 40vh;
+    }
+    
+    .spinner {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .loading-text {
+        font-size: var(--font-size-sm);
+    }
+}

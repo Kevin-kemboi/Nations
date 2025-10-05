@@ -1,0 +1,270 @@
+/* Modern filter container with improved spacing and layout */
+.filter-results-container {
+    min-height: 120px; /* Changed to min-height for flexible content */
+    padding: var(--space-8) var(--space-10) var(--space-6) var(--space-10); /* Using design tokens */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    /* Added subtle background texture */
+    background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
+    background-size: 20px 20px;
+    /* Smooth transitions */
+    transition: background-color var(--transition-normal);
+}
+
+/* Search input container with modern positioning */
+.filter-input {
+    position: relative;
+    width: 100%;
+    max-width: 480px; /* Increased max-width for better UX */
+}
+
+/* Modern search input with enhanced styling and accessibility */
+.filter-input input {
+    width: 100%;
+    height: 56px; /* Slightly taller for better touch targets */
+    padding: var(--space-4) var(--space-3) var(--space-4) 48px; /* Using design tokens */
+    font-size: var(--font-size-base); /* 16px base size for better mobile experience */
+    font-family: 'Inter', sans-serif; /* Consistent font family */
+    font-weight: 400;
+    line-height: var(--line-height-normal);
+    color: var(--text-color);
+    background-color: var(--nav-bg-color);
+    /* Modern shadow system instead of multiple small shadows */
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg); /* Modern rounded corners */
+    outline: none;
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    /* Enhanced transitions for smooth interactions */
+    transition: all var(--transition-fast);
+    /* Better placeholder styling */
+}
+
+/* Enhanced focus and hover states */
+.filter-input input:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.filter-input input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: var(--focus-ring), var(--shadow-md);
+    /* Subtle scale for focus feedback */
+    transform: scale(1.01);
+}
+
+/* Modern placeholder styling */
+.filter-input input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+    opacity: 1; /* Ensure consistent placeholder opacity */
+}
+
+/* Enhanced search icon with better positioning */
+#searchIcon {
+    position: absolute;
+    top: 50%;
+    left: var(--space-4); /* 16px from left */
+    transform: translateY(-50%); /* Perfect vertical centering */
+    color: var(--text-muted);
+    font-size: var(--font-size-lg); /* 18px icon size */
+    /* Smooth color transition */
+    transition: color var(--transition-fast);
+    /* Prevent icon from interfering with input */
+    pointer-events: none;
+}
+
+/* Icon color change when input is focused */
+.filter-input input:focus + #searchIcon,
+.filter-input:focus-within #searchIcon {
+    color: var(--accent-primary);
+}
+/* Modern dropdown container with improved interaction */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 20; /* Higher z-index for better stacking */
+    min-width: 180px; /* Increased minimum width for better content fit */
+}
+
+/* Enhanced selected option styling */
+.selected-option {
+    width: 100%;
+    min-width: 180px; /* Consistent with container */
+    height: 56px; /* Match input height for visual consistency */
+    display: flex;
+    justify-content: space-between; /* Space between text and arrow */
+    align-items: center;
+    padding: var(--space-4) var(--space-4); /* Consistent padding */
+    border: 1px solid var(--border-color);
+    background-color: var(--nav-bg-color);
+    /* Modern shadow system */
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-lg); /* Match input border radius */
+    font-size: var(--font-size-base); /* 16px for consistency */
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--text-color);
+    /* Enhanced transitions */
+    transition: all var(--transition-fast);
+    /* Add dropdown arrow indicator */
+    position: relative;
+}
+
+/* Add dropdown arrow using pseudo-element */
+.selected-option::after {
+    content: '▼';
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    transition: transform var(--transition-fast);
+}
+
+/* Hover state for selected option */
+.selected-option:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* Modern dropdown options container */
+.options {
+    list-style: none;
+    padding: var(--space-2) 0; /* Vertical padding for breathing room */
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 4px); /* Small gap from trigger */
+    left: 0;
+    width: 100%;
+    min-width: 200px; /* Minimum width for readability */
+    display: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background-color: var(--nav-bg-color);
+    /* Enhanced shadow for dropdown elevation */
+    box-shadow: var(--shadow-xl);
+    z-index: 50;
+    /* Backdrop blur for modern glass effect */
+    backdrop-filter: blur(10px);
+    /* Smooth animation */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all var(--transition-fast);
+}
+
+/* Individual option styling */
+.options li {
+    padding: var(--space-3) var(--space-4); /* Generous padding for better touch targets */
+    text-align: left; /* Left align for better readability */
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--text-color);
+    /* Smooth hover transitions */
+    transition: all var(--transition-fast);
+    /* Better line height for readability */
+    line-height: var(--line-height-normal);
+    /* Subtle border between options */
+    border-bottom: 1px solid transparent;
+}
+
+/* Enhanced hover effect for options */
+.options li:hover {
+    background-color: var(--accent-primary);
+    color: white;
+    /* Subtle padding increase for interactive feedback */
+    padding-left: var(--space-5);
+}
+
+/* First and last option styling */
+.options li:first-child {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.options li:last-child {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    border-bottom: none;
+}
+
+/* Show options with animation on hover */
+.custom-dropdown:hover .options {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active state for selected option when dropdown is open */
+.custom-dropdown:hover .selected-option {
+    border-color: var(--accent-primary);
+    box-shadow: var(--focus-ring), var(--shadow-md);
+}
+
+/* Rotate arrow when dropdown is open */
+.custom-dropdown:hover .selected-option::after {
+    transform: rotate(180deg);
+    color: var(--accent-primary);
+}
+/* Enhanced responsive design with mobile-first approach */
+@media screen and (max-width: 768px) {
+    .filter-results-container {
+        min-height: auto;
+        padding: var(--space-8) var(--space-4); /* Adjusted for mobile */
+        align-items: stretch; /* Full width alignment */
+        flex-direction: column;
+        gap: var(--space-6); /* 24px gap using design token */
+        /* Remove background pattern on mobile for better performance */
+        background-image: none;
+    }
+    
+    .filter-input {
+        width: 100%;
+        max-width: none; /* Remove max-width constraint on mobile */
+    }
+    
+    .filter-input input {
+        width: 100%;
+        /* Prevent zoom on iOS by using 16px font size minimum */
+        font-size: max(var(--font-size-base), 16px);
+    }
+    
+    .custom-dropdown {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .selected-option {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+/* Extra small screens optimization */
+@media screen and (max-width: 480px) {
+    .filter-results-container {
+        padding: var(--space-6) var(--space-3); /* Further reduced padding */
+        gap: var(--space-4); /* Tighter gap on very small screens */
+    }
+    
+    .filter-input input {
+        height: 52px; /* Slightly smaller height for small screens */
+        padding-left: 44px; /* Adjust for icon positioning */
+    }
+    
+    #searchIcon {
+        left: var(--space-3); /* Adjust icon position */
+        font-size: var(--font-size-base); /* Smaller icon on small screens */
+    }
+    
+    .selected-option {
+        height: 52px; /* Match input height */
+        font-size: var(--font-size-sm); /* Smaller text on mobile */
+    }
+    
+    .options li {
+        padding: var(--space-3); /* Consistent padding */
+        font-size: var(--font-size-sm); /* Smaller option text */
+    }
+}

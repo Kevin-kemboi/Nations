@@ -1,0 +1,375 @@
+/* Modern country details section with improved spacing */
+.country-details-section {
+    min-height: 100vh; /* Full viewport height for immersive experience */
+    padding: 0 var(--space-10); /* Using design tokens for consistency */
+    background-color: var(--bg-color);
+    /* Smooth background transitions */
+    transition: background-color var(--transition-normal);
+    /* Subtle background texture for visual interest */
+    background-image: radial-gradient(circle at 2px 2px, var(--border-color) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+/* Enhanced back button container with better spacing */
+.back-btn-container {
+    height: 120px;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--space-8) 0; /* Vertical padding for breathing room */
+}
+
+/* Modern back button with improved accessibility and styling */
+.back-btn-container button {
+    padding: var(--space-3) var(--space-6); /* 12px vertical, 24px horizontal */
+    display: flex;
+    justify-content: center; /* Center content for better alignment */
+    align-items: center;
+    gap: var(--space-2); /* 8px gap using design token */
+    color: var(--text-color);
+    background-color: var(--nav-bg-color);
+    /* Modern shadow system */
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color); /* Added subtle border */
+    border-radius: var(--radius-lg); /* Modern rounded corners */
+    font-size: var(--font-size-sm); /* 14px for secondary actions */
+    font-weight: 500; /* Increased weight for better readability */
+    font-family: 'Inter', sans-serif; /* Consistent font family */
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    cursor: pointer;
+    /* Enhanced transitions for smooth interactions */
+    transition: all var(--transition-fast);
+    /* Prevent text selection */
+    user-select: none;
+}
+
+/* Enhanced hover effects with elevation */
+.back-btn-container button:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--border-hover);
+    /* Subtle elevation on hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Active state for better feedback */
+.back-btn-container button:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Focus styles for accessibility */
+.back-btn-container button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring), var(--shadow-md);
+}
+/* Modern country information layout with improved spacing */
+.countryInfoSection {
+    padding: var(--space-6) 0 var(--space-12) 0; /* Enhanced vertical spacing */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Better alignment for content hierarchy */
+    gap: var(--space-16); /* 64px gap using design token */
+    background-color: var(--bg-color);
+    /* Smooth transitions */
+    transition: background-color var(--transition-normal);
+}
+
+/* Enhanced flag container with modern styling */
+.countryFlag-container {
+    width: 480px; /* Slightly larger for better visual impact */
+    height: 320px; /* Proportional height increase */
+    max-width: 480px;
+    /* Modern shadow and border system */
+    border-radius: var(--radius-xl); /* 16px rounded corners */
+    overflow: hidden; /* Ensure image respects border radius */
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
+    /* Subtle hover animation container */
+    transition: all var(--transition-normal);
+    /* Prevent layout shift during hover */
+    will-change: transform;
+}
+
+/* Flag image with enhanced styling and accessibility */
+.countryFlag-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure proper aspect ratio */
+    object-position: center; /* Center the flag content */
+    display: block; /* Remove any inline spacing */
+    /* Enhanced hover transition */
+    transition: transform var(--transition-slow);
+    /* Better image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Improved hover effects for flag */
+.countryFlag-container:hover {
+    /* Container elevation on hover */
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl), 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.countryFlag-container:hover img {
+    /* Subtle scale on image hover */
+    transform: scale(1.02);
+}
+/* Enhanced text information container with better responsiveness */
+.countryStats-container {
+    flex: 1; /* Use flexible width instead of fixed percentage */
+    min-width: 0; /* Allow shrinking */
+}
+
+/* Modern country title with improved typography hierarchy */
+.country-title {
+    padding: var(--space-4) 0 var(--space-6) 0; /* Better vertical spacing */
+    text-align: left;
+    font-size: var(--font-size-4xl); /* 36px using design token */
+    font-weight: 700; /* Slightly reduced for modern look */
+    font-family: 'Poppins', sans-serif; /* Display font for headings */
+    letter-spacing: -0.02em; /* Modern negative letter spacing */
+    line-height: var(--line-height-tight); /* Better line height for large text */
+    color: var(--text-color);
+    /* Add subtle text shadow for depth in dark mode */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced country details layout with better responsive behavior */
+.country-details {
+    display: grid; /* Changed from flex to grid for better control */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: var(--space-12) var(--space-8); /* Vertical and horizontal gaps */
+    align-items: start;
+}
+
+/* Modern styling for country detail paragraphs */
+.country-details p {
+    margin: var(--space-3) 0; /* 12px vertical margin */
+    color: var(--text-color);
+    font-size: var(--font-size-base); /* 16px for good readability */
+    font-weight: 400;
+    line-height: var(--line-height-relaxed); /* 1.625 for comfortable reading */
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    /* Better text rendering */
+    text-rendering: optimizeLegibility;
+}
+
+/* Enhanced styling for country detail labels */
+.country-details p strong,
+.country-details p b {
+    font-weight: 600; /* Semibold for better hierarchy */
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+}
+/* Modern border countries section with improved layout */
+.country-border {
+    padding: var(--space-10) 0 var(--space-12) 0; /* Enhanced vertical spacing */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start; /* Better alignment */
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-3); /* Consistent gaps using design tokens */
+    letter-spacing: -0.01em; /* Modern letter spacing */
+}
+
+/* Enhanced border section label */
+.country-border p {
+    margin: 0 var(--space-4) var(--space-3) 0; /* Better spacing */
+    font-size: var(--font-size-lg); /* 18px for section labels */
+    font-weight: 600; /* Semibold for hierarchy */
+    color: var(--text-color);
+    line-height: var(--line-height-normal);
+    /* Ensure proper line height for wrapped content */
+    min-width: 100%; /* Force label to full width */
+    flex-basis: 100%;
+}
+
+/* Enhanced border country links */
+.country-border a {
+    margin: 0;
+    text-decoration: none;
+    color: inherit; /* Inherit from parent for consistency */
+    /* Focus styles for accessibility */
+    border-radius: var(--radius-md);
+}
+
+.country-border a:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* Modern border country name styling */
+.country-border-name {
+    padding: var(--space-2) var(--space-4); /* 8px vertical, 16px horizontal */
+    color: var(--text-color);
+    background-color: var(--nav-bg-color);
+    /* Modern shadow system */
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color); /* Added subtle border */
+    border-radius: var(--radius-lg); /* Modern rounded corners */
+    font-size: var(--font-size-sm); /* 14px for tags */
+    font-weight: 500; /* Medium weight for better readability */
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    cursor: pointer;
+    /* Enhanced transitions */
+    transition: all var(--transition-fast);
+    /* Prevent text selection for better UX */
+    user-select: none;
+    /* Better text alignment */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px; /* Consistent height for touch targets */
+}
+
+/* Enhanced hover effects */
+.country-border-name:hover {
+    background-color: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+    /* Subtle elevation */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Active state for better feedback */
+.country-border-name:active {
+    transform: translateY(-1px);
+}
+
+/* Modern "no countries" message styling */
+.no-countries {
+    color: var(--accent-error); /* Using design token for error color */
+    font-size: var(--font-size-lg); /* 18px for prominence */
+    font-weight: 600; /* Semibold instead of extra bold */
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    padding: var(--space-4);
+    background-color: rgba(239, 68, 68, 0.1); /* Subtle error background */
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin: var(--space-4) 0;
+}
+/* Enhanced responsive design with mobile-first approach */
+
+/* Tablet and smaller desktop screens */
+@media screen and (max-width: 1200px) {
+    .country-details-section {
+        padding: 0 var(--space-8); /* Reduced padding for medium screens */
+        /* Remove background pattern for better performance */
+        background-image: none;
+    }
+    
+    .countryInfoSection {
+        gap: var(--space-12); /* 48px gap */
+    }
+    
+    .country-details {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: var(--space-8); /* Reduced gap */
+    }
+}
+
+/* Tablet portrait and larger mobile screens */
+@media screen and (max-width: 768px) {
+    .country-details-section {
+        padding: 0 var(--space-4); /* Mobile padding */
+    }
+    
+    .countryInfoSection {
+        padding: var(--space-4) 0 var(--space-8) 0;
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: var(--space-8); /* 32px gap */
+        align-items: center; /* Center content */
+    }
+    
+    .countryFlag-container {
+        width: min(480px, 90vw); /* Responsive width with maximum */
+        height: min(320px, 60vw); /* Proportional height */
+        max-width: 100%;
+    }
+    
+    .countryStats-container {
+        width: 100%;
+    }
+    
+    .country-title {
+        font-size: var(--font-size-3xl); /* 30px on mobile */
+        text-align: center; /* Center on mobile */
+        padding: var(--space-6) 0; /* Increased spacing */
+    }
+    
+    .country-details {
+        grid-template-columns: 1fr; /* Single column */
+        gap: var(--space-6); /* Reduced gap for mobile */
+    }
+    
+    .country-border {
+        padding: var(--space-8) 0; /* Reduced padding */
+        justify-content: center; /* Center border countries */
+    }
+    
+    .back-btn-container {
+        height: auto; /* Flexible height */
+        padding: var(--space-6) 0; /* Reduced padding */
+    }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+    .country-details-section {
+        padding: 0 var(--space-3); /* Minimal padding for small screens */
+    }
+    
+    .countryFlag-container {
+        width: 100%; /* Full width on small screens */
+        height: min(280px, 50vw); /* Smaller height for mobile */
+        max-width: 100%;
+    }
+    
+    .country-title {
+        font-size: var(--font-size-2xl); /* 24px on small screens */
+        padding: var(--space-4) 0; /* Reduced spacing */
+    }
+    
+    .country-details p {
+        font-size: var(--font-size-sm); /* Smaller text on mobile */
+        margin: var(--space-2) 0; /* Tighter spacing */
+    }
+    
+    .country-border {
+        padding: var(--space-6) 0; /* Further reduced padding */
+    }
+    
+    .country-border p {
+        font-size: var(--font-size-base); /* Standard size for mobile */
+        margin-bottom: var(--space-3);
+    }
+    
+    .country-border-name {
+        padding: var(--space-2) var(--space-3); /* Smaller padding */
+        font-size: var(--font-size-xs); /* 12px for small screens */
+        min-height: 32px; /* Smaller minimum height */
+    }
+    
+    .back-btn-container button {
+        padding: var(--space-2) var(--space-4); /* Smaller padding */
+        font-size: var(--font-size-xs); /* 12px for mobile */
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 320px) {
+    .countryFlag-container {
+        height: min(240px, 45vw); /* Even smaller for very small screens */
+    }
+    
+    .country-title {
+        font-size: var(--font-size-xl); /* 20px for very small screens */
+    }
+}

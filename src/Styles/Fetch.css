@@ -1,0 +1,242 @@
+/* Modern main body section with enhanced layout */
+.main-body-section {
+    min-height: 100vh;
+    padding: var(--space-8) var(--space-10); /* Using design tokens for consistency */
+    display: flex;
+    justify-content: center; /* Center content for better layout */
+    align-items: flex-start;
+    background-color: var(--bg-color);
+    /* Smooth background transitions */
+    transition: background-color var(--transition-normal);
+}
+
+/* Enhanced container with modern grid layout */
+.main-body-container {
+    width: 100%;
+    max-width: 1400px; /* Maximum width for better readability */
+    display: grid;
+    /* Responsive grid with auto-fit columns */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8); /* 32px gap using design token */
+    justify-items: center; /* Center grid items */
+    align-items: start; /* Align items to start for consistent height */
+}
+
+/* Clean link styling */
+.main-body-container a {
+    text-decoration: none;
+    color: inherit;
+    /* Smooth transitions for interactions */
+    transition: transform var(--transition-fast);
+    /* Better accessibility */
+    border-radius: var(--radius-xl);
+}
+
+.main-body-container a:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* Error container styling */
+.main-body-error {
+    width: 100%;
+    grid-column: 1 / -1; /* Span full width of grid */
+    text-align: center;
+    padding: var(--space-8);
+}
+/* Modern country card with enhanced styling and accessibility */
+.country-card {
+    width: 100%;
+    max-width: 320px; /* Flexible width with maximum */
+    min-height: 400px; /* Slightly taller for better proportions */
+    height: auto;
+    border-radius: var(--radius-xl); /* Modern rounded corners */
+    background-color: var(--nav-bg-color);
+    /* Modern shadow system */
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    /* Enhanced transitions for smooth interactions */
+    transition: all var(--transition-normal);
+    overflow: hidden; /* Ensure content respects border radius */
+    /* Better cursor indication */
+    cursor: pointer;
+    /* Prevent layout shift during animations */
+    will-change: transform;
+    /* Subtle backdrop blur for modern glass effect */
+    backdrop-filter: blur(10px);
+}
+
+/* Enhanced hover effects with elevation */
+.country-card:hover {
+    transform: translateY(-8px); /* More pronounced elevation */
+    box-shadow: var(--shadow-xl), 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-color: var(--accent-primary);
+}
+
+/* Active state for better feedback */
+.country-card:active {
+    transform: translateY(-4px);
+}
+
+/* Modern flag image container */
+.ctd-img {
+    width: 100%;
+    height: 220px; /* Slightly taller for better proportions */
+    border-radius: 0; /* Remove border radius to fit card */
+    overflow: hidden;
+    position: relative;
+    /* Subtle gradient overlay for text readability */
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+/* Enhanced flag image styling */
+.ctd-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Proper aspect ratio handling */
+    object-position: center;
+    display: block;
+    border-radius: 0;
+    /* Better image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Smooth transitions */
+    transition: transform var(--transition-slow);
+}
+
+/* Subtle image animation on card hover */
+.country-card:hover .ctd-img img {
+    transform: scale(1.05);
+}
+
+/* Modern card content styling */
+.ctd-info {
+    padding: var(--space-6); /* 24px padding using design token */
+    background-color: var(--nav-bg-color);
+    /* Smooth transitions */
+    transition: background-color var(--transition-normal);
+}
+
+/* Enhanced country title styling */
+.ctd-title {
+    padding: 0 0 var(--space-4) 0; /* Bottom padding only */
+    color: var(--text-color);
+    font-size: var(--font-size-xl); /* 20px using design token */
+    font-weight: 700; /* Bold for prominence */
+    font-family: 'Poppins', sans-serif; /* Display font for headings */
+    letter-spacing: -0.02em; /* Modern letter spacing */
+    line-height: var(--line-height-tight); /* Better line height */
+    /* Ensure text doesn't overflow */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* Smooth transitions */
+    transition: color var(--transition-fast);
+}
+
+/* Enhanced description styling */
+.ctd-desc {
+    font-size: var(--font-size-sm); /* 14px for better readability */
+    color: var(--text-secondary); /* Use secondary text color */
+    letter-spacing: -0.01em; /* Modern letter spacing */
+    line-height: var(--line-height-relaxed); /* Better reading experience */
+    margin-bottom: var(--space-2); /* Spacing between description items */
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    /* Smooth transitions */
+    transition: color var(--transition-fast);
+}
+
+/* Enhanced strong text in descriptions */
+.ctd-desc strong {
+    font-size: var(--font-size-sm); /* Match parent size */
+    color: var(--text-color); /* Primary text color for emphasis */
+    font-weight: 600; /* Semibold for better hierarchy */
+    letter-spacing: -0.01em;
+    font-family: 'Inter', sans-serif;
+}
+/* Enhanced responsive design with mobile-first approach */
+
+/* Tablet screens */
+@media screen and (max-width: 1024px) {
+    .main-body-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-6); /* Reduced gap for tablet */
+    }
+    
+    .main-body-section {
+        padding: var(--space-6) var(--space-8); /* Adjusted padding */
+    }
+}
+
+/* Small tablet and large mobile screens */
+@media screen and (max-width: 768px) {
+    .main-body-section {
+        padding: var(--space-6) var(--space-4); /* Reduced padding */
+    }
+    
+    .main-body-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--space-5); /* 20px gap */
+        justify-items: stretch; /* Full width items */
+    }
+    
+    .country-card {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+    .main-body-section {
+        padding: var(--space-4) var(--space-3); /* Minimal padding */
+    }
+    
+    .main-body-container {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: var(--space-4); /* 16px gap */
+    }
+    
+    .country-card {
+        min-height: 360px; /* Slightly smaller minimum height */
+    }
+    
+    .ctd-img {
+        height: 200px; /* Smaller image height on mobile */
+    }
+    
+    .ctd-info {
+        padding: var(--space-4); /* Reduced padding */
+    }
+    
+    .ctd-title {
+        font-size: var(--font-size-lg); /* 18px on mobile */
+    }
+    
+    .ctd-desc {
+        font-size: var(--font-size-xs); /* 12px on mobile */
+    }
+    
+    .ctd-desc strong {
+        font-size: var(--font-size-xs); /* Match parent size */
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 320px) {
+    .main-body-section {
+        padding: var(--space-3) var(--space-2); /* Very minimal padding */
+    }
+    
+    .country-card {
+        min-height: 340px; /* Even smaller for very small screens */
+    }
+    
+    .ctd-img {
+        height: 180px; /* Smaller image for very small screens */
+    }
+    
+    .ctd-title {
+        font-size: var(--font-size-base); /* 16px for very small screens */
+    }
+}

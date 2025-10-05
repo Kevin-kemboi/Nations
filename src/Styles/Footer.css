@@ -1,0 +1,116 @@
+/* Modern footer with enhanced styling and layout */
+footer {
+    padding: var(--space-8) var(--space-10);
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Smooth transitions */
+    transition: all var(--transition-normal);
+    /* Subtle backdrop blur */
+    backdrop-filter: blur(10px);
+}
+
+/* Modern GitHub button with enhanced styling */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+    background-color: var(--text-color); /* Use theme-aware color */
+    color: var(--bg-color); /* Inverse color for contrast */
+    border: 2px solid var(--text-color);
+    border-radius: var(--radius-lg);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    /* Enhanced transitions with better easing */
+    transition: all var(--transition-normal);
+    /* Remove absolute positioning for better layout */
+    position: relative;
+    /* Better accessibility */
+    outline: none;
+}
+
+/* Enhanced hover effects */
+.button:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    /* Subtle elevation */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Focus styles for accessibility */
+.button:focus-visible {
+    box-shadow: var(--focus-ring), var(--shadow-md);
+}
+
+/* Active state */
+.button:active {
+    transform: translateY(-1px);
+}
+
+/* Text styling within button */
+.button .text {
+    color: inherit; /* Inherit from parent */
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    /* Smooth transitions */
+    transition: color var(--transition-normal);
+}
+
+/* SVG icon styling */
+.button svg {
+    width: 20px;
+    height: 20px;
+    /* Smooth transitions */
+    transition: all var(--transition-normal);
+}
+
+.button svg path {
+    fill: currentColor; /* Use current text color */
+    transition: fill var(--transition-normal);
+}
+
+/* Icon animation on hover */
+.button:hover svg {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Enhanced responsive design */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        gap: var(--space-4);
+        padding: var(--space-6) var(--space-4);
+        text-align: center;
+    }
+    
+    .button {
+        width: auto; /* Flexible width */
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        padding: var(--space-4) var(--space-3);
+    }
+    
+    .button {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-xs);
+        gap: var(--space-2);
+    }
+    
+    .button svg {
+        width: 16px;
+        height: 16px;
+    }
+}
