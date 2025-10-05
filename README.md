@@ -66,8 +66,8 @@ Uses the public [REST Countries API](https://restcountries.com/) with selective 
 
 ```bash
 # Clone
-git clone https://github.com/Kevin-kemboi/Nations-Hub.git
-cd Nations-Hub
+git clone https://github.com/Kevin-kemboi/Nations.git
+cd Nations
 
 # Install deps
 npm install

@@ -1,7 +1,27 @@
 {
-  "name": "nations-hub",
+  "name": "nations",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "author": "Kevin Kemboi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevin-kemboi/Nations.git"
+  },
+  "homepage": "https://github.com/Kevin-kemboi/Nations#readme",
+  "bugs": {
+    "url": "https://github.com/Kevin-kemboi/Nations/issues"
+  },
+  "keywords": [
+    "react",
+    "countries",
+    "geography",
+    "restcountries",
+    "quiz",
+    "analytics",
+    "comparison",
+    "offline"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
