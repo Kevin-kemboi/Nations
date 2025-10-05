@@ -1,117 +1,163 @@
-# 🌍 Nations Hub &middot; [![Author Kevin](https://img.shields.io/badge/Author-Kevin-%3C%3E)](https://github.com/Kevin-kemboi)
+# 🌍 Nations Hub
 
-Welcome to Nations Hub! 🎉 Explore information about every country on Earth with our rich interactive experience. Discover stats, flags, and challenge yourself with geography games! 🌎✨
+[![Author: Kevin](https://img.shields.io/badge/Author-Kevin-3b82f6)](https://github.com/Kevin-kemboi) ![License: MIT](https://img.shields.io/badge/License-MIT-green) ![Status](https://img.shields.io/badge/Status-Active-success) ![Built With](https://img.shields.io/badge/Built%20with-React-61dafb?logo=react&logoColor=white)
 
-## ✨ Features
+Modern, offline‑friendly, dark‑themed world countries explorer + quizzes + analytics dashboard.
 
-- **📚 Country Information:** Detailed stats including population, area, capital, languages, currency
-- **🎌 Flag Gallery:** Comprehensive collection of national flags
-- **🔍 Search Functionality:** Instantly find any country
-- **🎮 Interactive Quiz Games:**
-  - **🧭 Reach the Country:** Navigate through neighboring borders
-  - **🗺️ Region Quiz:** Test your regional knowledge
-  - **🌏 Sub-Region Quiz:** Match countries to sub-regions
-  - **🏛️ Capital Quiz:** Identify countries by capitals
-  - **💱 Currencies Quiz:** Match currencies to countries
-  - **🗣️ Languages Quiz:** Identify official languages
-- **📱 Responsive Design:** Works perfectly on all devices
+---
 
-## ⚙️ Tech Stack
+## 📖 Overview
 
-- React.js
-- HTML5
-- CSS3
-- JavaScript
-- [REST Countries API](https://restcountries.com/)
+Nations Hub is an interactive geography platform that lets you explore data about every country, play knowledge quizzes, compare nations side‑by‑side, and view dynamic analytics. It now includes advanced filtering, favorites, comparison, offline caching, CSV export, and a fully modern dark UI layer.
 
-## 🎮 Game Descriptions
+## ✨ Feature Highlights
 
-### 🧭 Reach the Country
-Start from a country and reach the destination through neighboring borders!  
-![Reach the Country Game](/screenshots/reach-country.png)
+### Core
 
-### 🗺️ Region Quiz
-Test your knowledge of world regions  
-![Region Quiz](/screenshots/region-quiz.png)
+- 🔎 Smart Search (instant, prefix-based)
+- 🌐 Region & Sub‑Region browsing
+- 🏳️ Flag and identity data
+- 🧾 Country detail pages (population, currencies, languages, borders, domains, native names, etc.)
 
-### 🌏 Sub-Region Quiz
-Match countries to their sub-regions  
-![Sub-Region Quiz](/screenshots/subregion-quiz.png)
+### Advanced Additions
 
-### 🏛️ Capital Quiz
-Identify countries by their capitals  
-![Capital Quiz](/screenshots/capital-quiz.png)
+- ⭐ Favorites (persistent via LocalStorage, offline-ready)
+- ⇄ Comparison (compare up to 3 countries; export as CSV)
+- 📊 Analytics Dashboard (top populations, region distribution bars, average population)
+- 🧠 Multiple Quiz Modes (capital, region, language, currency, reach-the-country)
+- 🧰 Advanced Filters: population range sliders, language selection, region filtering, sorting (name/population)
+- 📥 Offline Caching: Country list cached locally for instant reloads and basic offline resilience
+- 🕶️ Enforced Dark Mode (light mode neutralized for consistent brand feel)
+- 📄 CSV Export (comparison data)
 
-### 💱 Currencies Quiz
-Match countries to their currencies  
-![Currencies Quiz](/screenshots/currency-quiz.png)
+### UX / UI
 
-### 🗣️ Languages Quiz
-Identify countries by official languages  
-![Languages Quiz](/screenshots/language-quiz.png)
+- Modern design tokens (spacing, typography scale, shadows, transitions)
+- Accessible focus states & keyboard-friendly controls
+- Responsive grid & adaptive layouts
+- Animated interactions (AOS fade transitions)
+
+## 🧱 Architecture Overview
+
+| Layer | Responsibility |
+|-------|----------------|
+| React Context (`AppContext`) | Global favorites, compare list, cache meta, offline state |
+| Search Context (Home) | Per-session filtering & search state |
+| REST Countries API | Data source (selective field fetching for performance) |
+| LocalStorage | Persistent UI state (favorites, compare, cached dataset) |
+
+## 📂 Directory Structure (partial)
+
+```text
+src/
+  App.js            # Routing + global providers
+  Context/
+    AppContext.js   # Favorites, compare, cache meta
+  Pages/            # Home, CountryDetails, Favorites, Compare, Analytics, Quiz
+  Components/       # Reusable UI (Navbar, Filter, CountryCard, Spinner, etc.)
+  Styles/           # Modular CSS files (modern design system)
+```
+
+## 🌐 Data Source
+
+Uses the public [REST Countries API](https://restcountries.com/) with selective field queries to reduce payload size (e.g. `?fields=name,flags,population,region,capital`).
 
 ## 🚀 Getting Started
 
-Follow these steps to set up Nations Hub locally:
-
 ```bash
-# Clone the repository
+# Clone
 git clone https://github.com/Kevin-kemboi/Nations-Hub.git
-
-# Navigate to project directory
 cd Nations-Hub
 
-# Install dependencies
+# Install deps
 npm install
 
-# Start the development server
+# Run dev server (usually http://localhost:3000 or next available port)
 npm start
+
+# Production build
+npm run build
 ```
 
-The application should now be running on `http://localhost:3000`.
+## 🧪 Available Scripts
 
-## 🌐 Live Demo
+| Script | Purpose |
+|--------|---------|
+| `npm start` | Dev server with live reload |
+| `npm run build` | Production build (minified) |
+| `npm test` | Run test runner (if tests added) |
 
-Check out the live demo of [Nations Hub](https://nations-hub-phi.vercel.app) to explore the features.
+## ⚙️ Configuration & Environment
 
-## 📸 Screenshots
+Currently no custom `.env` required. (If you later add rate-limited proxies or analytics, document env variables here.)
 
-### Country Information Page
+## 🗃 Caching Strategy
 
-![Country Information Page](/screenshots/country-info.png)
+- On first load, all countries are fetched & cached in `localStorage (nh_all_countries_cache_v1)`.
+- Subsequent loads hydrate UI immediately from cache while refetching in background.
+- Offline detection updates UI state (e.g. Favorites page label).
 
-### Flag Gallery
+## 🧩 Key Components
 
-![Flag Gallery](/screenshots/flag-gallery.png)
+| Component | Purpose |
+|-----------|---------|
+| `CountryCard` | Displays summary + favorite + compare actions |
+| `Filter` | Search + region + population range + language + sort controls |
+| `Compare` | Side-by-side comparison with export |
+| `Analytics` | Aggregated stats & visual bar indicators |
+| `Favorites` | Offline-capable list of starred countries |
+| `Spinner` | Accessible loading indicator |
 
-### Quiz Page
+## 🔐 Accessibility (A11y)
 
-![Quiz Page](/screenshots/quiz-page.png)
+- Uses semantic buttons & links
+- Focus-visible ring with high contrast
+- Color contrast meets WCAG AA in dark theme
+- Hover not required for core operations (keyboard friendly)
 
-### Reach the Country Game
+## 🧮 Performance Considerations
 
-![Reach the Country Game](/screenshots/reach-the-country.png)
+- Field-scoped API queries reduce overfetching
+- Memoized filtering & sorting (`useMemo` in `Filterdata`)
+- Local caching eliminates repeat network latency
+- No heavy chart libraries (CSS-based bars for analytics)
 
-### Normal Quiz
+## 🧭 Roadmap Ideas
 
-![Normal Quiz](/screenshots/normal-quiz.png)
+- PWA service worker for full offline mode
+- Debounced fuzzy search
+- Saved filter presets
+- Theming refactor (accessible system-level option)
+- Quiz difficulty levels & scoring persistence
+- Download favorites as JSON/CSV
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome! If you'd like to contribute to Nations Hub, please follow these guidelines:
+Contributions welcome!
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/new-feature`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to the branch (`git push origin feature/new-feature`).
-6. Create a new Pull Request.
+```bash
+git checkout -b feature/awesome-thing
+# implement
+git commit -m "feat: add awesome thing"
+git push origin feature/awesome-thing
+```
 
-## License
+Open a Pull Request with description + screenshots (if UI changes).
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🧾 License
 
-## Contact
+MIT © Kevin. See [LICENSE](LICENSE).
 
-Have any questions or suggestions? Feel free to contact me via GitHub: [Kevin-kemboi](https://github.com/Kevin-kemboi).
-"# Nations" 
+## 🙌 Acknowledgements
+
+- [REST Countries API](https://restcountries.com/)
+- Open source ecosystem maintainers
+
+## 📬 Contact
+
+Questions / suggestions: [Kevin-kemboi](https://github.com/Kevin-kemboi)
+
+---
+
+_Built with curiosity, coffee, and clean component composition._
+
